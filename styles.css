@@ -313,14 +313,61 @@ label{ display:block; margin-bottom: 6px; font-weight: 950; color: rgba(234,242,
 .footer__bottom{ margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); }
 
 .wa-float{
-  position: fixed; right: 16px; bottom: 16px; z-index: 60;
-  padding: 12px 14px; border-radius: 999px;
-  background: linear-gradient(135deg, rgba(34,211,238,.95), rgba(124,58,237,.95));
-  color: #050817; font-weight: 980; text-decoration:none;
-  box-shadow: 0 24px 70px rgba(0,0,0,.50);
-  border: 1px solid rgba(255,255,255,.16);
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+  border-radius: 999px;
+
+  background: #25D366; /* WhatsApp green */ /* [web:57] */
+  color: #ffffff;
+
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 14px 30px rgba(0,0,0,.28);
+
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .1px;
+
+  transition: transform .15s ease, filter .2s ease, box-shadow .2s ease;
 }
-.wa-float:focus{ outline:none; box-shadow: var(--focus), 0 24px 70px rgba(0,0,0,.50); }
+
+.wa-float:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 16px 34px rgba(0,0,0,.32);
+}
+
+.wa-float:focus{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37,211,102,.35), 0 16px 34px rgba(0,0,0,.32);
+}
+
+.wa-float__icon{
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wa-float__text{
+  font-size: 14px;
+  line-height: 1;
+}
+
+@media (max-width: 420px){
+  .wa-float__text{ display:none; } /* solo ícono en móviles pequeños */
+  .wa-float{ padding: 12px; }
+}
 
 .reveal{ opacity:0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
 .reveal.is-visible{ opacity:1; transform: translateY(0); }
